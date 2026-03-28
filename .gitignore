@@ -1,0 +1,6 @@
+
+# Fichiers trop lourds pour GitHub
+*.xml
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
