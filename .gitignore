@@ -1,3 +1,4 @@
+# Fichiers trop lourds pour GitHub
 *.xml
 __pycache__/
 *.pyc
