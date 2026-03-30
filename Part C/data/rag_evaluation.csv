@@ -1,0 +1,8 @@
+ID,Category,Baseline,RAG,RAG Results,RAG Status
+Q1,simple lookup,0.5,1.0,20,success
+Q2,aggregation,0.5,1.0,1,success
+Q3,inferred property (SWRL),0.0,1.0,20,success
+Q4,simple lookup,0.5,1.0,20,success
+Q5,inferred property (SWRL),0.0,1.0,1,success
+Q6,filtered lookup,0.5,1.0,20,success
+Q7,direct lookup,1.0,1.0,1,success

@@ -1,0 +1,46 @@
+
+=== FOOTBALL KNOWLEDGE GRAPH — SCHEMA SUMMARY ===
+
+BASE NAMESPACES:
+  Entities   : http://www.example.org/football/
+  Properties : http://www.example.org/football/prop/
+
+CLASSES (rdf:type):
+  - ex:Person (667 instances)
+  - ex:Country (68 instances)
+  - ex:Team (20 instances)
+  - ex:FootballPosition (16 instances)
+
+OBJECT PROPERTIES:
+  - prop:nationality (667 triples)
+  - prop:playsFor (647 triples)
+  - prop:playsPosition (647 triples)
+  - prop:coachedBy (647 triples)
+  - prop:competesIn (647 triples)
+  - prop:locatedIn (20 triples)
+  - prop:headCoach (20 triples)
+
+INFERRED PROPERTIES (via SWRL rules):
+  - prop:competesIn  : Person -> Country  (player competes in their team's country)
+  - prop:coachedBy   : Person -> Person   (player coached by their team's head coach)
+
+ENTITY EXAMPLES:
+  Person          : Aaron Bott, Aaron Hickey, Aaron Ramsdale
+  Team            : Fulham FC, Leeds United FC, West Ham United FC
+  Country         : Albania, Algeria, Armenia
+  FootballPosition: null, Left Midfield, Right Midfield
+
+SPARQL PREFIXES (always include all 4):
+  PREFIX ex:   <http://www.example.org/football/>
+  PREFIX prop: <http://www.example.org/football/prop/>
+  PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CRITICAL RULES FOR SPARQL GENERATION:
+  1. Entity URIs use underscores  : ex:Mohamed_Salah, ex:Arsenal_FC
+  2. Always filter by class       : ?p rdf:type ex:Person
+  3. Properties are in prop/      : prop:playsFor, NOT ex:playsFor
+  4. Use OPTIONAL for optional fields
+  5. Always add LIMIT 20 unless counting or aggregating
+  6. For text search              : FILTER(CONTAINS(LCASE(STR(?x)), LCASE("term")))
+  7. For COUNT queries            : SELECT ?var (COUNT(?x) AS ?count) WHERE {...} GROUP BY ?var
