@@ -1,0 +1,12 @@
+pandas
+numpy
+rdflib
+tqdm
+scikit-learn
+spacy
+networkx
+matplotlib
+seaborn
+torch
+transformers
+sentence-transformers
