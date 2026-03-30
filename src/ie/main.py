@@ -4,6 +4,7 @@ import json
 
 
 INPUT_FILE = "data/raw_data.json"
+OUTPUT_FILE = "artifacts/football_kb.ttl"
 
 
 def run():
@@ -12,10 +13,8 @@ def run():
 
     processed = preprocess(raw_data)
     g = extract_triplets(processed)
-    triplets = list(g)
 
-    with open("artifacts/extracted_triplets.json", "w") as f:
-        json.dump(triplets, f, indent=2)
+    g.serialize(OUTPUT_FILE, format="turtle")
 
 
 if __name__ == "__main__":
