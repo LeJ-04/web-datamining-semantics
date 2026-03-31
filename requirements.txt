@@ -10,3 +10,7 @@ seaborn
 torch
 transformers
 sentence-transformers
+owlready2
+pykeen
+groq
+requests
